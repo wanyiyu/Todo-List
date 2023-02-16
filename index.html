@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link href="./style.css" rel="stylesheet" type="text/css">
+    <title>ToDo List</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">TODO LIST</h1>
+        <div class="row justify-content-center p-3">
+            <div class="col-lg-6 col-md-9 col-sm-12">
+                <div class="addTodo">
+                    <input type="text" class="todoNew" placeholder="請輸入待辦事項">
+                    <button class="addBtn">＋</button>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center p-3">
+            <div class="col-lg-6 col-md-9 col-sm-12 listbox">
+                <div class="list_tab nav nav-tabs card-header-tabs">
+                    <button class="tab_item active" value="全部">全部</button>
+                    <button class="tab_item" value="待完成">待完成</button>
+                    <button class="tab_item" value="已完成">已完成</button>
+                </div>
+                <div class="card-body">
+                    <div class="list">
+
+                    </div>
+                    <div class="list_footer">
+                        <span class="list_num"></span>
+                        <button class="cleanBtn">清除所有完成項目</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+        crossorigin="anonymous"></script>
+    <script src="./all.js"></script>
+</body>
+
+</html>
