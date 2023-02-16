@@ -49,7 +49,7 @@ const addBtn = document.querySelector('.addBtn');
 const todoNew = document.querySelector('.todoNew');
 addBtn.addEventListener("click", function (e) {
     if (todoNew.value === "") {
-        alert('您尚未輸入任何內容！');
+        alert('您尚未輸入待辦事項！');
     }
     else {
         let addobj = {};
@@ -58,6 +58,11 @@ addBtn.addEventListener("click", function (e) {
         todoList.push(addobj);
         todoNew.value = "";
         showTodo(nowTab);
+    }
+})
+todoNew.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") {
+        addBtn.click();
     }
 })
 
