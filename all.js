@@ -33,7 +33,6 @@ function showTodo(filter) {
     list.innerHTML = str;
     updateTodoNum();
 }
-showTodo(nowTab);
 function updateTodoNum() {
     let itemNum = 0;
     todoList.forEach(function (item) {
@@ -58,6 +57,7 @@ addBtn.addEventListener("click", function (e) {
         todoList.push(addobj);
         todoNew.value = "";
         showTodo(nowTab);
+        saveList();
     }
 })
 todoNew.addEventListener("keypress", function (e) {
@@ -77,14 +77,15 @@ list.addEventListener("click", function (e) {
             todoList[index].isCompleted = "";
         }
         updateTodoNum();
+        saveList();
     }
     //刪除待辦
     if (e.target.getAttribute('class') == "delBtn") {
         let index = e.target.getAttribute('data-num');
         todoList.splice(index, 1);
         showTodo(nowTab);
+        saveList();
     }
-
 })
 
 //清除所有完成項目
@@ -95,6 +96,7 @@ cleanBtn.addEventListener("click", function (e) {
     })
     todoList = cleanTodo;
     showTodo(nowTab);
+    saveList();
 })
 
 //篩選待辦
@@ -124,3 +126,17 @@ function tabActive(num) {
         }
     })
 }
+
+//記錄待辦
+function saveList() {
+    let saveData = JSON.stringify(todoList);
+    localStorage.setItem('userList', saveData);
+}
+function init() {
+    let getData = localStorage.getItem('userList');
+    if (getData != null) {
+        todoList = JSON.parse(getData);
+    }
+    showTodo(nowTab);
+}
+init();
